@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<title>Hallo, Klant!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" media="only screen and (max-width: 400px)"
+	href="narrowK.css" />												<!-- Om Narrow- en WideView te hebben (mobiel) -->
+<link rel="stylesheet" media="only screen and (min-width: 400px)"
+	href="wideK.css" />
+
+
+<body>
+	<div id="frame">	<!-- Overkoepelende div voor de CSS-Grid -->
+		<div id="afspraakForm">
+		<br>Een afspraak maken: <br><br>
+			<form id="newAfspraakForm">
+				<input type="email" title="Een email-adres moet een @ en punt(.) bevatten" placeholder="email-adres" id="email_adres"
+					name="email_adres" required /> <br> <input type="number"
+					placeholder="werknemersnummer" id="werknemersnummer"
+					name="werknemersnummer" required /><br> <input type="text"
+					placeholder="voornaam" id="voornaam" name="voornaam" required /><br>
+				<input type="text" placeholder="achternaam" id="achternaam"
+					name="achternaam" required /><br> <input type="number"
+					title="Een telefoonnummer heeft 10 cijfers"
+					placeholder="telefoonnummer" id="telefoonnummer"
+					name="telefoonnummer" required /><br> <input type="date"
+					placeholder="datum" id="datum" name="datum" required />
+
+
+				<br> <input type="time" title="Wordt ingevuld zodra u op een tijd drukt" placeholder="begintijd" id="begintijd"
+					name="begintijd" readonly required /><br> <input
+					type="submit" onclick="maakAfspraak()" id="post" value="Plan!" />
+			</form>
+		</div><!-- Form om alle gegevens te krijgen -->
+		<div id="tijden"></div> <!-- Een div om informatie over de tijden te geven -->
+
+				<div id="tijdTable"></div> <!-- Een div om niet beschikbare tijden te geven-->
+
+				<div id="lTijdTable" class="lClass"></div> <!-- Een div om (alle) beschikbare tijden te geven-->
+
+				<div id="response"></div> <!-- Een div om de klant te helpen met aanwijzingen-->
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script src="iPass.js"></script>
+	<script>
+		$(document).ready(function() { <!--Kijkt of de datum wordt aangepast-->
+			initPage2();
+		});
+
+		$(document).ready(function() { <!-- Checkt of de (nieuw) gegeven datum juist is en handelt hier op-->
+			checkDate();
+		});
+	</script>
+</body>
+</html>

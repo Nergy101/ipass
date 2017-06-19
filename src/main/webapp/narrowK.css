@@ -1,0 +1,41 @@
+div:empty {
+   display: none;
+}
+
+div { border: solid thin;
+border-color: #d162d1;
+	border-style: solid;
+    border-left: thick double #d162d1;
+	
+}
+
+#frame {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+#afspraakForm    { grid-column: 1/2; grid-row: 1;   }
+#tijden    { grid-column: 1/2; grid-row: 2;   }
+#tijdTable    { grid-column: 2; grid-row: 1; }
+#lTijdTable    { grid-column: 2; grid-row: 2;   }
+#response { grid-column: 2; grid-row: 1;   }
+
+
+input{
+	width:98%;
+}
+
+tr:hover {background-color:#d162d1}
+
+
+tr{
+	border-bottom:1px solid #000000;
+	background-color:#dda0dd;
+	width:98%;
+}
+
+td{
+	vertical-align:bottom;
+	border-bottom:1px solid #ddd;
+}

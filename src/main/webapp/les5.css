@@ -1,0 +1,31 @@
+body{
+	background-color:#cce6ff
+}
+
+#boe{
+	width:100%;
+	border-style:solid;
+	background-color:white;
+}
+
+output{
+	float:center;
+	width:300px;
+}
+
+table{
+	width:100%;	
+}
+
+tr:hover {background-color:#f5f5f5}
+
+th{
+	height:20px;
+	float:center;
+	width:auto;
+}
+
+td{
+	vertical-align:bottom;
+	border-bottom:1px solid #ddd;
+}

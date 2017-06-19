@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<title>Hallo, Werknemer!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" media="only screen and (max-width: 400px)"
+	href="narrowW.css" />											 <!-- Om Narrow- en WideView te hebben (mobiel) -->
+<link rel="stylesheet" media="only screen and (min-width: 400px)"
+	href="wideW.css" />
+
+<body>
+	<div id="frame">	<!-- Overkoepelende div voor de CSS-Grid -->
+		<div id="uAfspraakTable">
+			<table id="afspraakTable">
+				<tr>
+					<th>Afspraaknummer</th>
+					<th>Werknemer</th>
+					<th>Klant naam</th>
+					<th>Telefoonnummer</th>
+					<th>E-mail</th>
+					<th>Begintijd</th>
+					<th>Datum</th>
+					<th>
+				</tr>
+			</table>
+		</div><!-- Alle tableheaders van de te vullen tables -->
+		<div id="editAfspraak">
+			<form id="updateAfsprakenForm">
+				<input type="text" placeholder="afspraaknummer" id="uAfspraaknummer"
+					name="uAfspraaknummer" readonly required disabled /> <input
+					type="email" placeholder="email-adres" id="uE-mail_adres"
+					name="uE-mail_adres" required disabled /> <br> <input
+					type="number" placeholder="werknemersnummer" id="uWerknemersnummer"
+					name="uWerknemersnummer" required disabled /><br> <input
+					type="text" placeholder="voornaam" id="uVoornaam" name="uVoornaam"
+					required disabled /><br> <input type="text"
+					placeholder="achternaam" id="uAchternaam" name="uAchternaam"
+					required disabled /><br> <input type="number"
+					placeholder="telefoonnummer" id="uTelefoonnummer"
+					name="uTelefoonnummer" required disabled /><br> <input
+					type="date" placeholder="datum" id="uDatum" name="uDatum" required
+					disabled /> <br> <input type="time" id="begintijd"
+					name="begintijd" readonly required /><br> <input
+					type="button" onclick="confirmatie()" id="update" value="Wijzigen!" />
+			</form>
+		</div> <!-- Form om alle gegevens aan te kunnen passen en confirmatie van de verwijdering te doen-->
+		<div id="searchDiv">
+			<input type="number" min="1" id="myInputNummer"
+				onkeyup="findNummer()" placeholder="Zoeken op afspraaknummer">
+
+			<input type="text" id="myInputNaam" onkeyup="findNaam()"
+				placeholder="Zoeken op klant naam"> <input type="text"
+				id="myInputDate" onkeyup="findDate()" placeholder="Zoeken op datum">
+		</div><!-- Een div met alle zoekfuncties -->
+		<div id="uResponse"></div> <!-- Een div om de werknemer te helpen met aanwijzingen-->
+		<div id="uTijden"></div> <!-- Een div om informatie over de tijden te geven -->
+		<div id ="uTijdTable"></div> <!-- Een div om niet beschikbare tijden te geven-->
+		<div id="lTijdTable"></div> <!-- Een div om (alle) beschikbare tijden te geven-->
+		
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script src="iPass.js"></script>
+	<script>
+		$(document).ready(function() { <!--Vult de tabel met alle afspraken-->
+			initPage();
+		});
+
+		$(document).ready(function() { <!-- Checkt of de (nieuw) gegeven datum juist is en handelt hier op-->
+			checkDate2();
+		});
+	</script>
+</body>
+</html>

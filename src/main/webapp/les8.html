@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<title>Les 8</title>
+<link rel="stylesheet" type="text/css" href="les5.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+<div id="editCountry">
+			<form id="updateCustomerForm">
+					<label>ISO:</label>
+					<output id="iso" name="iso"/></output><br><label>Land</label>
+					<input id="land" name="land"><br> <label>Hoofdstad</label>
+					<input id="hoofdstad" name="hoofdstad"><br> <label>Regio</label>
+					<input id="regio" name="regio"><br> <label>Oppervlakte</label>
+					<input id="oppervlakte" name="oppervlakte"><br> <label>Inwoners</label>
+					<input id="inwoners" name="inwoners"><br>
+					<input type="button" id="update" value="Update" onclick="updateCountry()"/>
+			</form>
+			<form id="newCountryForm">
+				<input type="text" placeholder="newcode" id="code" name="code" /> <input
+					type="text" placeholder="name" id="name" name="name" /> <input
+					type="text" placeholder="capital" id="capital" name="capital" /> 
+					<input type="button" onclick="createCountry()" id="post" value="Post!" />
+			</form>
+
+			<div id="response"></div>
+
+		</div>
+		
+	<div id="frame">
+		<div id="countryList" style="overflow-x: auto;">
+			<table id="countryTable">
+				<input type="text" id="myInput" onkeyup="find()"
+			placeholder="Search for regio(s)..." title="Type in a name">
+				<tr>
+					<th>Landcode</th>
+					<th>Hoofdstad</th>
+					<th>Regio</th>
+					<th>Oppervlakte</th>
+					<th>Inwoners</th>
+				</tr>
+			</table>
+		</div>
+		
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script src="les8.js"></script>
+	<script>
+		$(document).ready(function() {
+			initPage();
+		});
+	</script>
+</body>
+</html>
