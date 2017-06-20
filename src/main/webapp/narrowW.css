@@ -40,8 +40,9 @@ div {
 #uAfspraakTable    { grid-column: 1/5; grid-row: 4;   }
 
 #uAfspraakTable{
-	background-color:#a8e7ff;
+	background-color:#edfaff;
 }
+
 table{
 	width:100%;	
 }
