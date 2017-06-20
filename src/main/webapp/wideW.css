@@ -2,11 +2,12 @@ div:empty {
    display: none;
 }
 
-div { border: solid thin;
-border-color: #d162d1;
-	border-style: solid;
+div { 
+	border-color: #dda0dd;
     border-left: thick double #d162d1;
-	
+    border-right:thick double #d162d1;
+    border-bottom:thick double #d162d1;
+    border-top:thick double #d162d1;
 }
 
 #frame {
@@ -47,6 +48,6 @@ tr{
 }
 
 td{
-	vertical-align:bottom;
 	border-bottom:1px solid #000000;
+	vertical-align:bottom;
 }
