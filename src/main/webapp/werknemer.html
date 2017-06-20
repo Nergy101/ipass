@@ -3,15 +3,20 @@
 <title>Hallo, Werknemer!</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" media="only screen and (max-width: 400px)"
-	href="narrowW.css" />											 <!-- Om Narrow- en WideView te hebben (mobiel) -->
+	href="narrowW.css" />
+<!-- Om Narrow- en WideView te hebben (mobiel) -->
 <link rel="stylesheet" media="only screen and (min-width: 400px)"
 	href="wideW.css" />
 
 <body>
-	<div id="frame">	<!-- Overkoepelende div voor de CSS-Grid -->
-	<div id="uNaarAfspraak"><a href="klant.html">Een afspraak maken</a> <br></div>
-	
-		<div id="uAfspraakTable" style="overflow-x:auto;"	>
+	<div id="frame">
+		<!-- Overkoepelende div voor de CSS-Grid -->
+		<div id="uNaarAfspraak">
+			<center>Terug naar de <a href="iPass.html">Homepage</a></center>
+			<center>Een <a href="klant.html">afspraak maken</a></center>
+		</div>
+
+		<div id="uAfspraakTable" style="overflow-x: auto;">
 			<table id="afspraakTable">
 				<tr>
 					<th>Afspraaknummer</th>
@@ -21,10 +26,12 @@
 					<th>E-mail</th>
 					<th>Begintijd</th>
 					<th>Datum</th>
-					<th>
+					<th></th>
+					<th></th>
 				</tr>
 			</table>
-		</div><!-- Alle tableheaders van de te vullen tables -->
+		</div>
+		<!-- Alle tableheaders van de te vullen tables -->
 		<div id="editAfspraak">
 			<form id="updateAfsprakenForm">
 				<input type="text" placeholder="afspraaknummer" id="uAfspraaknummer"
@@ -42,9 +49,11 @@
 					type="date" placeholder="datum" id="uDatum" name="uDatum" required
 					disabled /> <br> <input type="time" id="begintijd"
 					name="begintijd" readonly required /><br> <input
-					type="button" onclick="confirmatie()" id="update" value="Wijzigen!" />
+					type="button" onclick="wConfirmatie()" id="update"
+					value="Wijzigen!" />
 			</form>
-		</div> <!-- Form om alle gegevens aan te kunnen passen en confirmatie van de verwijdering te doen-->
+		</div>
+		<!-- Form om alle gegevens aan te kunnen passen en confirmatie van de verwijdering te doen-->
 		<div id="searchDiv">
 			<input type="number" min="1" id="myInputNummer"
 				onkeyup="findNummer()" placeholder="Zoeken op afspraaknummer">
@@ -52,11 +61,16 @@
 			<input type="text" id="myInputNaam" onkeyup="findNaam()"
 				placeholder="Zoeken op klant naam"> <input type="text"
 				id="myInputDate" onkeyup="findDate()" placeholder="Zoeken op datum">
-		</div><!-- Een div met alle zoekfuncties -->
-		<div id="uResponse"></div> <!-- Een div om de werknemer te helpen met aanwijzingen-->
-		<div id="uTijden"></div> <!-- Een div om informatie over de tijden te geven -->
-		<div id ="uTijdTable" style="overflow-x:auto;"></div> <!-- Een div om niet beschikbare tijden te geven-->
-		<div id="lTijdTable" style="overflow-x:auto;"></div> <!-- Een div om (alle) beschikbare tijden te geven-->
+		</div>
+		<!-- Een div met alle zoekfuncties -->
+		<div id="uResponse"></div>
+		<!-- Een div om de werknemer te helpen met aanwijzingen-->
+		<div id="uTijden"></div>
+		<!-- Een div om informatie over de tijden te geven -->
+		<div id="uTijdTable" style="overflow-x: auto;"></div>
+		<!-- Een div om niet beschikbare tijden te geven-->
+		<div id="lTijdTable" style="overflow-x: auto;"></div>
+		<!-- Een div om (alle) beschikbare tijden te geven-->
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
 	<script src="iPass.js"></script>

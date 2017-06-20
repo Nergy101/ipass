@@ -11,8 +11,8 @@
 <body>
 	<div id="frame">	<!-- Overkoepelende div voor de CSS-Grid -->
 		<div id="afspraakForm">
-		Terug naar de <a href="iPass.html">Homepage</a>
-		<br>Een afspraak maken: <br><br>
+		<center>Terug naar de <a href="iPass.html">Homepage</a></center>
+		<br>Een afspraak maken: <br>
 			<form id="newAfspraakForm" onsubmit="maakAfspraak()">
 				<input type="email" title="Een email-adres moet een @ en punt(.) bevatten" placeholder="email-adres" id="email_adres"
 					name="email_adres" required /> <br> <input type="number"
@@ -32,13 +32,12 @@
 					type="submit" id="post" value="Plan!" />
 			</form>
 		</div><!-- Form om alle gegevens te krijgen -->
+		
 		<div id="tijden"></div> <!-- Een div om informatie over de tijden te geven -->
-
-				<div id="tijdTable"></div> <!-- Een div om niet beschikbare tijden te geven-->
-
-				<div id="lTijdTable" class="lClass"></div> <!-- Een div om (alle) beschikbare tijden te geven-->
-
-				<div id="response"></div> <!-- Een div om de klant te helpen met aanwijzingen-->
+		<div id="tijdTable"></div> <!-- Een div om niet beschikbare tijden te geven-->
+		<div id="lTijdTable" class="lClass"></div> <!-- Een div om (alle) beschikbare tijden te geven-->
+		<div id="response"></div> <!-- Een div om de klant te helpen met aanwijzingen-->
+	
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
 	<script src="iPass.js"></script>

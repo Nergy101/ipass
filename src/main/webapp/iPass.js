@@ -1,8 +1,19 @@
 initPage2();
 
-function confirmatie() {// om de wijziging een 2e confirmatie nodig te laten
-						// hebben
-	var txt;
+function dConfirmatie(afspraaknummer) {// om de wijziging een 2e confirmatie nodig te laten
+	// hebben
+
+	if (confirm("Weet u zeker dat u dit wilt doen?") == true) {
+		deleteAfspraak(afspraaknummer);
+	} else {
+		$("#uResponse").empty();
+		$("#uResponse").text("U heeft gekozen de afspraak niet te verwijderen.");
+	}
+}
+
+function wConfirmatie() {// om de wijziging een 2e confirmatie nodig te laten
+	// hebben
+
 	if (confirm("Weet u zeker dat u dit wilt doen?") == true) {
 		updateAfspraak();
 	} else {
@@ -17,7 +28,7 @@ function initPage2() { // Checkt voor veranderingen aan het datum field
 		d = new Date(this.value);
 		var curr_date = ("0" + d.getDate()).slice(-2)
 		var curr_month = ("0" + (d.getMonth() + 1)).slice(-2); // Maand begint
-																// bij 0
+		// bij 0
 		var curr_year = d.getFullYear();
 		dS = curr_year + "-" + curr_month + "-" + curr_date;
 	});
@@ -35,11 +46,11 @@ function initPage() {// Vult de tabel met alle afspraken
 							+ '</td><td>' + item.telefoonnummer + '</td><td>'
 							+ item.email_adres + '</td><td>' + item.begintijd
 							+ '</td><td>' + item.datum
-							+ '</td><td><button onclick="deleteAfspraak('
-							+ item.afspraaknummer + ')">verwijderen</button>'
+							+ '</td><td><button onclick="dConfirmatie('
+							+ item.afspraaknummer + ')">Verwijderen</button>'
 							+ '</td><td><button onclick="selectAfspraak('
 							+ item.afspraaknummer
-							+ ')">wijzigen</button></td></tr>');
+							+ ')">Wijzigen</button></td></tr>');
 		});
 	});
 }
@@ -58,7 +69,7 @@ function checkDate2() { // checkt op veranderingen aan de datum
 			$("#uResponse").empty();
 			$("#tijdTable").empty();
 			$("#update").prop("disabled", true);
-			$('#uResponse').css('background-color', 'black');
+			$('#uResponse').css('text-decoration', 'underline', 'red');
 			$('#uResponse').css('color', 'red');
 			$("#uResponse").append("Datum moet in de toekomst liggen!");
 
@@ -69,6 +80,7 @@ function checkDate2() { // checkt op veranderingen aan de datum
 			if ($('#uTijden').is(':empty')) {
 				$("#update").prop("disabled", false);
 				$('#uResponse').css('background-color', 'white');
+				$('#uResponse').css('text-decoration', 'none');
 				$('#uResponse').css('color', 'black');
 				$("#uTijden").append('Deze tijden zijn beschikbaar:');
 			}
@@ -87,11 +99,16 @@ function checkDate() { // checkt op veranderingen aan de datum
 			$("#lTijdTable").empty();
 			$("#response").empty();
 			$("#post").prop("disabled", true);
+			$('#response').css('text-decoration', 'underline', 'red');
+			$('#response').css('color', 'red');
 			$("#response").append("Datum moet in de toekomst liggen!");
 		} else {
 			$("#response").empty();
 			if ($('#tijden').is(':empty')) {
 				$("#post").prop("disabled", false);
+				$('#response').css('background-color', 'white');
+				$('#response').css('text-decoration', 'none');
+				$('#response').css('color', 'black');
 				$("#tijden").append('Deze tijden zijn beschikbaar:');
 			}
 			geefTijden();
@@ -139,7 +156,8 @@ function lGeefTijden2() { // Kijk of tijdTable leeg is en append de tijdlijst
 	}
 }
 
-function geefTijden() {//append alle niet meer beschikbare tijden aan tijdTable
+function geefTijden() {// append alle niet meer beschikbare tijden aan
+						// tijdTable
 	$("#tijdTable").empty();
 	$
 			.getJSON(
@@ -174,7 +192,8 @@ function geefTijden() {//append alle niet meer beschikbare tijden aan tijdTable
 					})
 };
 
-function geefTijden2() { //append alle niet meer beschikbare tijden aan tijdTable
+function geefTijden2() { // append alle niet meer beschikbare tijden aan
+							// tijdTable
 	$("#uTijdTable").empty();
 	var d = new Date($("#uDatum").val());
 	var curr_date = ("0" + d.getDate()).slice(-2)
@@ -217,23 +236,24 @@ function geefTijden2() { //append alle niet meer beschikbare tijden aan tijdTabl
 					})
 };
 
-function getTijd(tijd) { //vul de geselecteerde tijd in het tijdvak
+function getTijd(tijd) { // vul de geselecteerde tijd in het tijdvak
 	$("#begintijd").val(tijd);
 }
 
-function maakAfspraak() { //creëer een afspraak in de database
+function maakAfspraak() { // creëer een afspraak in de database
 	var data = $("#newAfspraakForm").serialize();
-	if (data.includes('=&')) { //als de data een nullwaarde bevat doe dit:
+	if (data.includes('=&')) { // als de data een nullwaarde bevat doe dit:
 		$('#response').empty();
-		$('#response').append('Er is iets fout gegaan, is alles wel (correct) ingevuld?');
+		$('#response').append(
+				'Er is iets fout gegaan, is alles wel (correct) ingevuld?');
 
-	} else { //als de aanvraag geen nullwaardes bevat
+	} else { // als de aanvraag geen nullwaardes bevat
 		$.post("/rest/afspraken", data, function(response) {
 		})
 	}
 };
 
-function deleteAfspraak(a) { //delete een afspraak uit de database
+function deleteAfspraak(a) { // delete een afspraak uit de database
 	var uri = "/rest/afspraken/" + a;
 
 	$.ajax(uri, {
@@ -247,7 +267,7 @@ function deleteAfspraak(a) { //delete een afspraak uit de database
 	});
 };
 
-function updateAfspraak() { //update een afspraak
+function updateAfspraak() { // update een afspraak
 	var aNr = $("#uAfspraaknummer").val();
 	var uri = "/rest/afspraken/" + aNr;
 
@@ -264,7 +284,8 @@ function updateAfspraak() { //update een afspraak
 	});
 };
 
-function selectAfspraak(afspraakNummer) { //stop een afspraak in het 'update'-formulier
+function selectAfspraak(afspraakNummer) { // stop een afspraak in het
+											// 'update'-formulier
 	$.getJSON("/rest/afspraken/" + afspraakNummer, function(json) {
 		$("#uAfspraaknummer").val(json.afspraaknummer)
 		$("#uWerknemersnummer").val(json.werknemersnummer)
@@ -274,7 +295,7 @@ function selectAfspraak(afspraakNummer) { //stop een afspraak in het 'update'-fo
 		$("#uE-mail_adres").val(json.email_adres)
 		$("#begintijd").val(json.begintijd)
 		$("#uDatum").val(json.datum)
-		//enable inputvakken
+		// enable inputvakken
 		$("#uWerknemersnummer").prop("disabled", false);
 		$("#uVoornaam").prop("disabled", false);
 		$("#uAchternaam").prop("disabled", false);
@@ -286,7 +307,7 @@ function selectAfspraak(afspraakNummer) { //stop een afspraak in het 'update'-fo
 
 }
 
-function wwCheck() { //check ww
+function wwCheck() { // check ww
 	if ($("#wachtwoord").val() == '1002') {
 		if ($("#werknemersnummer").val() in [ 1, 2, 3 ]) {
 			window.location.assign("werknemer.html")
@@ -295,14 +316,15 @@ function wwCheck() { //check ww
 	}
 }
 
-function findNummer() { //zoekactie waar wordt gezocht op afspraaknummer
+function findNummer() { // zoekactie waar wordt gezocht op afspraaknummer
 	var input, filter, table, tr, td, i;
 	input = document.getElementById("myInputNummer");
 	filter = input.value.toUpperCase();
 	table = document.getElementById("afspraakTable");
 	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
-		td = tr[i].getElementsByTagName("td")[0]; //<-- column 0 == afspraaknummer
+		td = tr[i].getElementsByTagName("td")[0]; // <-- column 0 ==
+													// afspraaknummer
 		if (td) {
 			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
 				tr[i].style.display = "";
@@ -313,14 +335,14 @@ function findNummer() { //zoekactie waar wordt gezocht op afspraaknummer
 	}
 }
 
-function findNaam() { //zoekactie waar wordt gezocht op naam
+function findNaam() { // zoekactie waar wordt gezocht op naam
 	var input, filter, table, tr, td, i;
 	input = document.getElementById("myInputNaam");
 	filter = input.value.toUpperCase();
 	table = document.getElementById("afspraakTable");
 	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
-		td = tr[i].getElementsByTagName("td")[2]; //<-- column 2 == naam
+		td = tr[i].getElementsByTagName("td")[2]; // <-- column 2 == naam
 		if (td) {
 			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
 				tr[i].style.display = "";
@@ -331,14 +353,14 @@ function findNaam() { //zoekactie waar wordt gezocht op naam
 	}
 }
 
-function findDate() { //zoekactie waar wordt gezocht op datum
+function findDate() { // zoekactie waar wordt gezocht op datum
 	var input, filter, table, tr, td, i;
 	input = document.getElementById("myInputDate");
 	filter = input.value.toUpperCase();
 	table = document.getElementById("afspraakTable");
 	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
-		td = tr[i].getElementsByTagName("td")[6]; //<-- column 6 == datum
+		td = tr[i].getElementsByTagName("td")[6]; // <-- column 6 == datum
 		if (td) {
 			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
 				tr[i].style.display = "";

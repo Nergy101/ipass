@@ -28,9 +28,9 @@ div {
 
 #editAfspraak   { grid-column: 1/2; grid-row: 1/4;   }
 
-#uResponse { grid-column: 2/3; grid-row: 3/4;  }
-#uTijden   { grid-column: 2/3; grid-row: 1/2;  }
-#uNaarAfspraak  {	grid-column: 2/3; grid-row: 2/4;	}
+#uResponse { grid-column: 2/3; grid-row: 2;  }
+#uTijden   { grid-column: 2/3; grid-row: 1;  }
+#uNaarAfspraak  {	grid-column: 2/3; grid-row: 3;	}
 
 #lTijdTable  { grid-column: 3/4; grid-row: 1/4; }
 #uTijdTable    { grid-column: 3/4; grid-row: 5; }

@@ -31,9 +31,9 @@ div {
 }
 
 #afspraakForm    { grid-column: 1/2; grid-row: 1;   }
-#tijden   {    grid-column: 1/2; grid-row: 2;  }
-#tijdTable   { grid-column: 2/3; grid-row: 1;   }
-#lTijdTable    { grid-column: 2/3; grid-row: 2; }
+#tijden   {    grid-column: 1; grid-row: 2;  }
+#tijdTable   { grid-column: 2; grid-row: 1;   }
+#lTijdTable    { grid-column: 2; grid-row: 2; }
 #response { grid-column: 2/3; grid-row: 1;   }
 
 input{
