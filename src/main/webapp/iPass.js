@@ -225,9 +225,6 @@ function maakAfspraak() { //creëer een afspraak in de database
 	} else { //als de aanvraag geen nullwaardes bevat
 		$.post("/rest/afspraken", data, function(response) {
 		})
-		$('#response').empty();
-		$('#response').append('Bedankt voor het maken van een afspraak, Tot gauw!');
-		$('#response').append('<a href="iPass.html">iPass_home</a>');
 	}
 };
 
