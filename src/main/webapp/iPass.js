@@ -58,6 +58,8 @@ function checkDate2() { // checkt op veranderingen aan de datum
 			$("#uResponse").empty();
 			$("#tijdTable").empty();
 			$("#update").prop("disabled", true);
+			$('#uResponse').css('background-color', 'black');
+			$('#uResponse').css('color', 'red');
 			$("#uResponse").append("Datum moet in de toekomst liggen!");
 
 		} else {
@@ -66,6 +68,8 @@ function checkDate2() { // checkt op veranderingen aan de datum
 			$("#uResponse").empty();
 			if ($('#uTijden').is(':empty')) {
 				$("#update").prop("disabled", false);
+				$('#uResponse').css('background-color', 'white');
+				$('#uResponse').css('color', 'black');
 				$("#uTijden").append('Deze tijden zijn beschikbaar:');
 			}
 		}
