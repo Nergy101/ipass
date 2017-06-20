@@ -12,7 +12,7 @@
 	<div id="frame">	<!-- Overkoepelende div voor de CSS-Grid -->
 		<div id="afspraakForm">
 		<br>Een afspraak maken: <br><br>
-			<form id="newAfspraakForm">
+			<form id="newAfspraakForm" onsubmit="maakAfspraak()">
 				<input type="email" title="Een email-adres moet een @ en punt(.) bevatten" placeholder="email-adres" id="email_adres"
 					name="email_adres" required /> <br> <input type="number"
 					placeholder="werknemersnummer" id="werknemersnummer"
@@ -22,13 +22,13 @@
 					name="achternaam" required /><br> <input type="number"
 					title="Een telefoonnummer heeft 10 cijfers"
 					placeholder="telefoonnummer" id="telefoonnummer"
-					name="telefoonnummer" required /><br> <input type="date"
+					name="telefoonnummer" min="0000000000" max='9999999999' required /><br> <input type="date"
 					placeholder="datum" id="datum" name="datum" required />
 
 
 				<br> <input type="time" title="Wordt ingevuld zodra u op een tijd drukt" placeholder="begintijd" id="begintijd"
 					name="begintijd" readonly required /><br> <input
-					type="submit" onclick="maakAfspraak()" id="post" value="Plan!" />
+					type="submit" id="post" value="Plan!" />
 			</form>
 		</div><!-- Form om alle gegevens te krijgen -->
 		<div id="tijden"></div> <!-- Een div om informatie over de tijden te geven -->
