@@ -7,55 +7,18 @@
 <body>
 
 
-<div>
-<a href="iPass.html">iPass_home</a>
-<a href="werknemer.html">iPass_werknemer</a>
-<br><br>
-<a href="klant.html">iPass_klant</a>
-<br><br>
-</div>
-
 	<div>
-		<form id="newAfspraakForm">
-			<input type="text" placeholder="email-adres" id="email_adres" name="code" /> <input
-				type="number" placeholder="werknemersnummer" id="werknemersnummer" name="name" /> <input
-				type="number" placeholder="tijd_id" id="" name="tijd_id" /> <input
-				type="text" placeholder="voornaam" id="voornaam" name="capital" /><input
-				type="text" placeholder="achternaam" id="achternaam" name="capital" /><input
-				type="number" placeholder="telefoonnummer" id="telefoonnummer" name="capital" /><input
-				type="date" placeholder="datum" id="datum" name="capital" /><input
-				type="time" placeholder="begintijd" id="begintijd" name="capital" /><input
-				type="button" onclick="maakAfspraak()" id="post" value="Post!" />
-		</form>
+		<a href="iPass.html">iPass_home</a> <br>
+		<a href="werknemer.html">iPass_werknemer</a><br>
+		<br> <a href="klant.html">iPass_klant</a> <br>
+		<br>
 	</div>
-	<div>
-		<table id="afspraakTable">
-			<input type="number" min="1" id="myInputNummer"
-				onkeyup="findNummer()" placeholder="Zoeken op afspraaknummer">
 
-			<input type="text" id="myInputNaam" onkeyup="findNaam()"
-				placeholder="Zoeken op klant naam">
 
-			<input type="text" id="myInputDate" onkeyup="findDate()"
-				placeholder="Zoeken op datum">
-			<tr>
-				<th>Afspraaknummer</th>
-				<th>Werknemer</th>
-				<th>Klant naam</th>
-				<th>Telefoonnummer</th>
-				<th>E-mail</th>
-				<th>Begintijd</th>
-				<th>Datum</th>
-				<th>
-			</tr>
-		</table>
-	</div>
 	<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
 	<script src="iPass.js"></script>
 	<script>
-		$(document).ready(function() {
-			initPage();
-		});
+		
 	</script>
 </body>
 </html>
