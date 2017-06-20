@@ -24,7 +24,7 @@ function initPage2() { // Checkt voor veranderingen aan het datum field
 
 function initPage() {// Vult de tabel met alle afspraken
 
-	$.getJSON("/secondapp/rest/afspraken", function(json) {
+	$.getJSON("/rest/afspraken", function(json) {
 		$.each(json, function(key, item) {
 			$('#afspraakTable').append(
 					'<tr id="' + item.afspraaknummer + '"><td>'
