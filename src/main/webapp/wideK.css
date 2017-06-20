@@ -37,7 +37,7 @@ div {
 #response { grid-column: 2/3; grid-row: 1;   }
 
 input{
-	width:100%;
+	width:99%;
 }
 
 tr:hover {background-color:#d162d1}
