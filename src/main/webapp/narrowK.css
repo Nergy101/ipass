@@ -1,3 +1,13 @@
+a:link {
+color: #dda0dd;
+}
+a:visited {
+color: #d162d1;
+}
+a:hover {
+color: #d162d1;
+}
+
 div:empty {
    display: none;
 }

@@ -1,49 +1,9 @@
-body{
-	background-color:#ffffff
+a:link {
+color: #dda0dd;
 }
-
-.boe{
-	width:100%;
-	border-style:solid;
-	background-color:white;
+a:visited {
+color: #d162d1;
 }
-
-div{
-	background-colour:#FFFFFF ;
-}
-
-div:empty {
-   display: none;
-}
-
-.editDiv{
-	width: 25%;
-    height: 100px;
-}
-
-output{
-	float:center;
-	width:300px;
-}
-
-table{
-	width:100%;	
-}
-
-tr:hover {background-color:#d162d1}
-
-th{
-	height:20px;
-	float:center;
-	width:auto;
-}
-
-tr{
-	border-bottom:1px solid #000000;
-	background-color:#dda0dd;
-}
-
-td{
-	vertical-align:bottom;
-	border-bottom:1px solid #ddd;
+a:hover {
+color: #d162d1;
 }
