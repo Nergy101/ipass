@@ -6,6 +6,7 @@ function confirmatie() {// om de wijziging een 2e confirmatie nodig te laten
 	if (confirm("Weet u zeker dat u dit wilt doen?") == true) {
 		updateAfspraak();
 	} else {
+		$("uResponse").empty();
 		$("#uResponse").text("U heeft gekozen de afspraak niet te wijzigen.");
 	}
 }
