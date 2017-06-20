@@ -12,8 +12,7 @@ div:empty {
    display: none;
 }
 
-div {
-	background-color:#edfaff; 
+div { 
 	border-color: #dda0dd;
     border-left: thick double #d162d1;
     border-right:thick double #d162d1;
@@ -38,6 +37,10 @@ div {
 
 #searchDiv{  grid-column: 1/3; grid-row: 5; }
 #uAfspraakTable    { grid-column: 1/5; grid-row: 6;   }
+
+#uAfspraakTable{
+	background-color:#edfaff;
+}
 
 table{
 	width:100%;	
