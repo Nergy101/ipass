@@ -138,7 +138,7 @@ function geefTijden() {//append alle niet meer beschikbare tijden aan tijdTable
 	$("#tijdTable").empty();
 	$
 			.getJSON(
-					"/secondapp/rest/afspraken",
+					"/rest/afspraken",
 					function(json) {
 						$
 								.each(
@@ -179,7 +179,7 @@ function geefTijden2() { //append alle niet meer beschikbare tijden aan tijdTabl
 	dS = curr_year + "-" + curr_month + "-" + curr_date;
 	$
 			.getJSON(
-					"/secondapp/rest/afspraken",
+					"/rest/afspraken",
 					function(json) {
 						$
 								.each(
@@ -223,13 +223,13 @@ function maakAfspraak() { //creëer een afspraak in de database
 		$('#response').append('Er is iets fout gegaan, is alles wel (correct) ingevuld?');
 
 	} else { //als de aanvraag geen nullwaardes bevat
-		$.post("/secondapp/rest/afspraken", data, function(response) {
+		$.post("/rest/afspraken", data, function(response) {
 		})
 	}
 };
 
 function deleteAfspraak(a) { //delete een afspraak uit de database
-	var uri = "/secondapp/rest/afspraken/" + a;
+	var uri = "/rest/afspraken/" + a;
 
 	$.ajax(uri, {
 		type : "delete",
@@ -244,7 +244,7 @@ function deleteAfspraak(a) { //delete een afspraak uit de database
 
 function updateAfspraak() { //update een afspraak
 	var aNr = $("#uAfspraaknummer").val();
-	var uri = "/secondapp/rest/afspraken/" + aNr;
+	var uri = "/rest/afspraken/" + aNr;
 
 	$.ajax(uri, {
 		type : "put",
@@ -260,7 +260,7 @@ function updateAfspraak() { //update een afspraak
 };
 
 function selectAfspraak(afspraakNummer) { //stop een afspraak in het 'update'-formulier
-	$.getJSON("/secondapp/rest/afspraken/" + afspraakNummer, function(json) {
+	$.getJSON("/rest/afspraken/" + afspraakNummer, function(json) {
 		$("#uAfspraaknummer").val(json.afspraaknummer)
 		$("#uWerknemersnummer").val(json.werknemersnummer)
 		$("#uVoornaam").val(json.voornaam)
