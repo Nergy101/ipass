@@ -7,8 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ws.rs.PathParam;
-
 import model.Afspraak;
 
 public class AfspraakDAOImpl extends ConDAO implements AfspraakDAO {

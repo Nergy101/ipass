@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Afspraak;
-import nl.hu.v1wac.secondapp.webservices.Country;
 
 public interface AfspraakDAO {
 
