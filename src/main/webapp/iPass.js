@@ -197,7 +197,7 @@ function geefTijden2() { // append alle niet meer beschikbare tijden aan
 	$("#uTijdTable").empty();
 	var d = new Date($("#uDatum").val());
 	var curr_date = ("0" + d.getDate()).slice(-2)
-	var curr_month = ("0" + (d.getMonth() + 1)).slice(-2); // Maand begind
+	var curr_month = ("0" + (d.getMonth() + 1)).slice(-2); // Maand begint
 	// bij 0
 	var curr_year = d.getFullYear();
 	dS = curr_year + "-" + curr_month + "-" + curr_date;

@@ -58,7 +58,6 @@ public class AfspraakResource {
 		List<Afspraak> afspraken;
 		afspraken = ServiceProviderIPass.getAfspraakService().getAlleAfspraken();
 		for (Afspraak a : afspraken) {
-			System.out.println(a.getAfspraakNummer()+" == "+(aNr));
 			if (a.getAfspraakNummer()==(aNr)) {
 				a.setEmail(e_a);
 				a.setWerknemersNummer(wnnr);
@@ -66,7 +65,7 @@ public class AfspraakResource {
 				a.setVoornaam(vn);
 				a.setAchternaam(an);
 				a.setTelefoonNummer(tnr);
-				a.setDatum(datum);// check voor goede waardes
+				a.setDatum(datum);
 				a.setBeginTijd(bt);
 				ServiceProviderIPass.getAfspraakService().updateAfspraak(a);
 				job.add("email_adres", a.getEmail());
@@ -143,7 +142,6 @@ public class AfspraakResource {
 		JsonObjectBuilder job = Json.createObjectBuilder();
 		try {
 			a = ServiceProviderIPass.getAfspraakService().getAfspraakByCode(aNr);
-			System.out.println(a);
 
 			if (a == null) {
 				throw new WebApplicationException("Er is geen afspraak!");
@@ -158,7 +156,6 @@ public class AfspraakResource {
 			job.add("datum", a.getDatum());
 			job.add("begintijd", a.getBeginTijd());
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

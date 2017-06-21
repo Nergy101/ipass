@@ -91,7 +91,6 @@ public class AfspraakDAOImpl extends ConDAO implements AfspraakDAO {
 			stmt.close();
 			con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -104,7 +103,6 @@ public class AfspraakDAOImpl extends ConDAO implements AfspraakDAO {
 		try (Connection con = super.getConnection()) {
 			Statement stmt = con.createStatement();
 			String strQuery = "update afspraak set afspraaknummer = "+a.getAfspraakNummer()+", email_adres ='" + a.getEmail()+"', werknemersnummer ="+ a.getWerknemersNummer() +", tijd_id ="+ a.getTijdId()+",voornaam ='"+a.getVoornaam()+"', achternaam ='" + a.getAchternaam()+"', telefoonnummer =" + a.getTelefoonNummer()+ ", datum ='" + a.getDatum() +"', begintijd ='" + a.getBeginTijd()+"' where afspraaknummer ="+a.getAfspraakNummer()+";";
-			System.out.println(strQuery);
 			stmt.executeUpdate(strQuery);
 			stmt.close();
 			con.close();
@@ -122,7 +120,6 @@ public class AfspraakDAOImpl extends ConDAO implements AfspraakDAO {
 			String strQuery = "select * from afspraak where afspraaknummer ='" + aNr + "'";
 
 			ResultSet rs = stmt.executeQuery(strQuery);
-			System.out.println(strQuery);
 
 			while (rs.next()) {
 				a = new Afspraak(rs.getInt("afspraaknummer"), rs.getString("email_adres"),

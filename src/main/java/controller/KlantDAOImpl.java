@@ -22,7 +22,6 @@ public class KlantDAOImpl extends ConDAO implements KlantDAO {
 			String queryText = "SELECT * FROM Klant";
 
 			ResultSet rs = stmt.executeQuery(queryText);
-			System.out.println(rs);
 			while (rs.next()) {
 
 				Klant a = new Klant(rs.getString("email"), rs.getString("voornaam"), rs.getString("achternaam"),
@@ -47,7 +46,6 @@ public class KlantDAOImpl extends ConDAO implements KlantDAO {
 				+ "','" 
 				+klant.getAchternaam()+  "','"+k.getVoornaam()
 				+"')";
-		//System.out.println(strQuery);
 		stmt.executeUpdate(strQuery);
 		stmt.close();
 		conn.close();
@@ -58,7 +56,6 @@ public class KlantDAOImpl extends ConDAO implements KlantDAO {
 	public void deleteKlant (Klant k) throws SQLException { // delete een klant uit de database
 		try (Connection con = super.getConnection()) {
 			Statement stmt = con.createStatement();
-			//System.out.println(c.getCode()+"DAOImpl");
 			String queryText = "DELETE FROM klant WHERE Klant.E-mail_adres ='"+k.getEmail()+"';";
 
 			stmt.executeUpdate(queryText);
